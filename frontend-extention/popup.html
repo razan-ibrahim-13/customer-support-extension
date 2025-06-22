@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 350px;
+      height: 500px;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .status {
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      margin: 10px;
+      border-radius: 8px;
+    }
+    
+    .chat-container {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      height: 300px;
+    }
+    
+    .input-container {
+      padding: 15px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .input-container input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      outline: none;
+    }
+    
+    .message {
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 15px;
+      max-width: 80%;
+    }
+    
+    .user-message {
+      background: rgba(255,255,255,0.2);
+      margin-left: auto;
+      text-align: right;
+    }
+    
+    .bot-message {
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      margin-right: auto;
+    }
+    
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 10px;
+    }
+    
+    .suggestions {
+      margin: 10px 0;
+    }
+    
+    .suggestion-btn {
+      display: block;
+      width: 100%;
+      padding: 8px 12px;
+      margin: 5px 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 15px;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .suggestion-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>💬 Support Assistant</h1>
+  </div>
+  
+  <div class="status" id="status">
+    <div>🔍 Analyzing site documentation...</div>
+  </div>
+  
+  <div class="suggestions" id="suggestions">
+    <div style="font-size: 12px; margin-bottom: 10px;">Ask me about:</div>
+    <button class="suggestion-btn" data-question="How do I cancel my subscription?">
+     • Cancellations & Refunds
+    </button>
+    <button class="suggestion-btn" data-question="What is your refund policy?">
+      • Billing & Payments
+    </button>
+    <button class="suggestion-btn" data-question="'How do I contact support?">
+      • Contact Information
+    </button>
+  </div>
+  
+  <div class="chat-container" id="chatContainer">
+    <!-- Messages will be inserted here -->
+  </div>
+  
+  <div class="loading" id="loading">
+    <div>🤖 Thinking...</div>
+  </div>
+  
+  <div class="input-container">
+    <input type="text" id="userInput" placeholder="Type your question here..." >
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
